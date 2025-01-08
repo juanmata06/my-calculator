@@ -2,36 +2,78 @@
   class="w-screen h-40 bg-gradient-to-b from-gray-800 to-gray-700 flex items-end text-right"
   style="max-width: 300px;"
 >
-  <div class="w-full py-5 px-6 text-6xl text-white font-thin">340.0</div>
+  <div class="w-full py-5 px-6 text-6xl text-white font-thin">
+    <span class="text-4xl">50 +</span>
+  <br/>
+    <span>340.0</span>
+  </div>
 </div>
 <div class="w-full bg-gradient-to-b from-indigo-400 to-indigo-500">
   <div class="flex w-full">
-      <app-button>C</app-button>
-      <app-button>+/-</app-button>
-      <app-button>%</app-button>
-      <app-button isCommandButton>÷</app-button>
+      <app-button (onClickButton)="handleClick('C')">
+        {{'C'}}
+      </app-button>
+      <app-button (onClickButton)="handleClick('+/-')">
+        {{'+/-'}}
+      </app-button>
+      <app-button (onClickButton)="handleClick('%')">
+        {{'%'}}
+      </app-button>
+      <app-button (onClickButton)="handleClick('÷')" isCommandButton>
+        {{'÷'}}
+      </app-button>
   </div>
   <div class="flex w-full">
-    <app-button>7</app-button>
-    <app-button>8</app-button>
-    <app-button>9</app-button>
-    <app-button isCommandButton>x</app-button>
+    <app-button (onClickButton)="handleClick('7')">
+      {{'7'}}
+    </app-button>
+    <app-button (onClickButton)="handleClick('8')">
+      {{'8'}}
+    </app-button>
+    <app-button (onClickButton)="handleClick('9')">
+      {{'9'}}
+    </app-button>
+    <app-button (onClickButton)="handleClick('x')" isCommandButton>
+      {{'x'}}
+    </app-button>
   </div>
   <div class="flex w-full">
-    <app-button>4</app-button>
-    <app-button>5</app-button>
-    <app-button>6</app-button>
-    <app-button isCommandButton>-</app-button>
+    <app-button (onClickButton)="handleClick('4')">
+      {{'4'}}
+    </app-button>
+    <app-button (onClickButton)="handleClick('5')">
+      {{'5'}}
+    </app-button>
+    <app-button (onClickButton)="handleClick('6')">
+      {{'6'}}
+    </app-button>
+    <app-button (onClickButton)="handleClick('-')" isCommandButton>
+      {{'-'}}
+    </app-button>
   </div>
   <div class="flex w-full">
-    <app-button>1</app-button>
-    <app-button>2</app-button>
-    <app-button>3</app-button>
-    <app-button isCommandButton>+</app-button>
+    <app-button (onClickButton)="handleClick('1')">
+      {{'1'}}
+    </app-button>
+    <app-button (onClickButton)="handleClick('2')">
+      {{'2'}}
+    </app-button>
+    <app-button (onClickButton)="handleClick('3')">
+      {{'3'}}
+    </app-button>
+    <app-button (onClickButton)="handleClick('+')" isCommandButton>
+      {{'+'}}
+    </app-button>
   </div>
   <div class="flex w-full">
-    <app-button>0</app-button>
-    <app-button>.</app-button>
-    <app-button isCommandButton isDoubleSize>=</app-button>
+    <app-button (onClickButton)="handleClick('0')">
+      {{'0'}}
+    </app-button>
+    <app-button (onClickButton)="handleClick('.')">
+      {{'.'}}
+    </app-button>
+    <app-button (onClickButton)="handleClick('=')" isCommandButton isDoubleSize>
+      {{'='}}
+    </app-button>
   </div>
 </div>
