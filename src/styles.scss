@@ -2,3 +2,8 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+
+.is-command-button {
+  @apply bg-indigo-700 bg-opacity-20;
+}
