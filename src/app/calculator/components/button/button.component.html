@@ -2,6 +2,7 @@
   <button 
     #button
     [class.is-command-button]="isCommandButton()"
+    [class.is-button-pressed]="isButtonPressed()"
     (click)="emitButtonValue()"
   >
     <ng-content/>

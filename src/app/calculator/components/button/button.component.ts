@@ -1,5 +1,5 @@
 import { CommonModule } from '@angular/common';
-import { ChangeDetectionStrategy, Component, ElementRef, HostBinding, OnInit, ViewEncapsulation, input, output, viewChild } from '@angular/core';
+import { ChangeDetectionStrategy, Component, ElementRef, HostBinding, OnInit, ViewEncapsulation, input, output, signal, viewChild } from '@angular/core';
 
 @Component({
   selector: 'app-button',
@@ -11,7 +11,9 @@ import { ChangeDetectionStrategy, Component, ElementRef, HostBinding, OnInit, Vi
   styleUrl: './button.component.scss',
   changeDetection: ChangeDetectionStrategy.OnPush,
   host: {
-    class: 'w-1/4 border-r border-b border-indigo-400'
+    'class': 'border-r border-b border-indigo-400',
+    '[class.w-1/4]': '!isDoubleSize()',
+    '[class.w-2/4]': 'isDoubleSize()'
   }
 })
 export class ButtonComponent {
@@ -39,9 +41,12 @@ export class ButtonComponent {
   //   return this.isCommandButton();
   // }
 
-  @HostBinding('class.w-2/4') get CommandStyle() {
-    return this.isDoubleSize();
-  }
+  // The way it used to be done before use host:
+  // @HostBinding('class.w-2/4') get CommandStyle() {
+  //   return this.isDoubleSize();
+  // }
+
+  public isButtonPressed = signal(false);
 
   /**
    * -----------------------------------------------------------------------------------------------------------------------------
@@ -71,6 +76,20 @@ export class ButtonComponent {
   public emitButtonValue(): void {
     if (!this.buttonValue()?.nativeElement) { return; }
     this.onClickButton.emit(this.buttonValue()!.nativeElement.innerText.trim());
+  }
+
+  public buttonPressStyling(key: string) {
+    if (!this.buttonValue()) return;
+
+    const value = this.buttonValue()!.nativeElement.innerText;
+
+    if (key !== value) return;
+
+    this.isButtonPressed.set(true);
+
+    setTimeout(() => {
+      this.isButtonPressed.set(false);
+    }, 100);
   }
 
   /**
