@@ -19,7 +19,7 @@ import { ChangeDetectionStrategy, Component, ElementRef, HostBinding, OnInit, Vi
 export class ButtonComponent {
   /**
    * ------------------------------------------------------------------------------------------------------------------------------
-   * General vars for component
+   * General vars
    * ------------------------------------------------------------------------------------------------------------------------------
    */
   buttonValue = viewChild<ElementRef<HTMLButtonElement>>('button');
